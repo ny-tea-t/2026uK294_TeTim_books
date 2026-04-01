@@ -9,3 +9,13 @@ export async function getBookById(id: string) {
   const res = await api.get(`/books/${id}`);
   return res.data;
 }
+
+export async function updateBook(id: string, data: any) {
+  const res = await api.put(`/books/${id}`, data);
+  return res.data;
+}
+
+export async function createBook(data: any) {
+  const res = await api.post('/books', data);
+  return res.data;
+}

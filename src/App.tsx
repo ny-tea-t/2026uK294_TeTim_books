@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import LoginPage from './pages/LoginPage';
-import BookDetailPage from './pages/BookDetailPage';
+import BookCreatePage from './pages/BookCreatePage';
 import { isAuthenticated, logout } from './service/AuthService';
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
   return (
     <div>
       <button onClick={handleLogout}>Logout</button>
-      <BookDetailPage />
+      <BookCreatePage />
     </div>
   );
 }
