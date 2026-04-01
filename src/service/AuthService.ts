@@ -6,6 +6,8 @@ export async function login(email: string, password: string) {
     password,
   });
 
+  console.log('LOGIN RESPONSE:', res.data);
+
   const token = res.data.accessToken || res.data.token;
 
   if (!token) {
