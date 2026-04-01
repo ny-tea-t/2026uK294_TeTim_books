@@ -19,3 +19,8 @@ export async function createBook(data: any) {
   const res = await api.post('/books', data);
   return res.data;
 }
+
+export async function deleteBook(id: string) {
+  const res = await api.delete(`/books/${id}`);
+  return res.data;
+}
