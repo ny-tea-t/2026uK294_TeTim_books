@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { getBookById } from '../BookService';
+import PageTitle from '../components/atoms/PageTitle';
 
 function BookDetailPage() {
   const { id } = useParams();
@@ -22,7 +23,7 @@ function BookDetailPage() {
         ← Zurück zur Liste
       </Link>
 
-      <h1 style={{ color: 'black', marginTop: '20px' }}>Book Detail</h1>
+      <PageTitle>Book Detail</PageTitle>
 
       <div
         style={{
@@ -45,11 +46,7 @@ function BookDetailPage() {
 
         {book.cover_url ? (
           <div style={{ marginTop: '20px' }}>
-            <img
-              src={book.cover_url}
-              alt={book.title}
-              style={{ maxWidth: '250px', borderRadius: '10px' }}
-            />
+            <img src={book.cover_url} alt={book.title} style={{ maxWidth: '250px', borderRadius: '10px' }} />
           </div>
         ) : (
           <p style={{ color: 'black', marginTop: '20px' }}>Kein Bild verfügbar</p>

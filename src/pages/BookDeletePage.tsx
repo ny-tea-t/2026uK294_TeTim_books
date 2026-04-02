@@ -20,18 +20,26 @@ function BookDeletePage() {
   };
 
   return (
-    <div>
-      <h1>Delete Book</h1>
+    <div style={{ maxWidth: '900px', margin: '0 auto', padding: '20px' }}>
+      <h1 style={{ color: 'black' }}>Delete Book</h1>
 
       {books.map((book) => (
-        <div key={book.id}>
-          <p>ID: {book.id}</p>
-          <h3>{book.title}</h3>
-          <p>{book.publication_date}</p>
-          <button onClick={() => handleDelete(String(book.id))}>
+        <div
+          key={book.id}
+          style={{
+            border: '1px solid #ccc',
+            borderRadius: '10px',
+            padding: '16px',
+            marginBottom: '16px',
+            backgroundColor: '#f8f8f8',
+          }}
+        >
+          <p style={{ color: 'black' }}>ID: {book.id}</p>
+          <h3 style={{ color: 'black' }}>{book.title}</h3>
+          <p style={{ color: 'black' }}>{book.publication_date}</p>
+          <button onClick={() => handleDelete(String(book.id))} style={{ color: 'black' }}>
             Löschen
           </button>
-          <hr />
         </div>
       ))}
     </div>

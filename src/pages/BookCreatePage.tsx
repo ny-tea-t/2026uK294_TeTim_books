@@ -1,53 +1,20 @@
-import { useState } from 'react';
 import { createBook } from '../BookService';
+import PageTitle from '../components/atoms/PageTitle';
+import BookForm from '../components/molecules/BookForm';
 
 function BookCreatePage() {
-  const [title, setTitle] = useState('');
-  const [publicationDate, setPublicationDate] = useState('');
-
-  const handleSave = async () => {
-    const newBook = {
-      title: title,
-      publication_date: publicationDate,
-    };
-
-    await createBook(newBook);
-    alert('Buch erstellt!');
-    setTitle('');
-    setPublicationDate('');
-  };
-
   return (
-    <div>
-      <h1>Create Book</h1>
+    <div style={{ maxWidth: '700px', margin: '0 auto', padding: '20px' }}>
+      <PageTitle>Create Book</PageTitle>
 
-      <div>
-        <label htmlFor="title">Titel</label>
-        <br />
-        <input
-          id="title"
-          name="title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-      </div>
-
-      <br />
-
-      <div>
-        <label htmlFor="publication_date">Publication Date</label>
-        <br />
-        <input
-          id="publication_date"
-          name="publication_date"
-          value={publicationDate}
-          onChange={(e) => setPublicationDate(e.target.value)}
-        />
-      </div>
-
-      <br />
-
-      <button onClick={handleSave}>Speichern</button>
+      <BookForm
+        initialValues={{ title: '', publication_date: '' }}
+        submitText="Erstellen"
+        onSubmit={async (values) => {
+          await createBook(values);
+          alert('Buch erstellt!');
+        }}
+      />
     </div>
   );
 }

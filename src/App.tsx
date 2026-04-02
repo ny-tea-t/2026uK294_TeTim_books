@@ -5,7 +5,8 @@ import BookDetailPage from './pages/BookDetailPage';
 import BookEditPage from './pages/BookEditPage';
 import BookCreatePage from './pages/BookCreatePage';
 import BookDeletePage from './pages/BookDeletePage';
-import { isAuthenticated, logout } from './service/AuthService';
+import { isAuthenticated } from './service/AuthService';
+import Header from './components/organisms/Header';
 
 function App() {
   const loggedIn = isAuthenticated();
@@ -15,17 +16,8 @@ function App() {
   }
 
   return (
-    <div style={{ padding: '20px' }}>
-      <button
-        onClick={() => {
-          logout();
-          window.location.reload();
-        }}
-        style={{ color: 'black', marginBottom: '20px' }}
-      >
-        Logout
-      </button>
-
+    <div>
+      <Header />
       <Routes>
         <Route path="/" element={<Navigate to="/books" />} />
         <Route path="/books" element={<BooksPage />} />
